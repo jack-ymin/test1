@@ -1,0 +1,22 @@
+server:
+  port: 9019
+spring:
+  application:
+    name: dingdan-order #定义服务器名称
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///ordermanager?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: root
+  redis:
+    port: 6379
+    host: 127.0.0.1
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7508/eureka/
+  instance:
+    prefer-ip-address: true
+ribbon:
+  eureka:
+    enabled: true

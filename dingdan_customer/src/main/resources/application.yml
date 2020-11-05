@@ -1,0 +1,13 @@
+server:
+  port: 9111
+spring:
+  application:
+    name: dingdan-customer #定义服务器名称
+  thymeleaf:
+    cache: false
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7508/eureka/
+  instance:
+    prefer-ip-address: true

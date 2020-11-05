@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <!--1.引入bootstrap框架的样式； -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <!--2.引入angularJS框架的样式； -->
+    <link rel="stylesheet" href="/angularjs/pagination.css">
+    <!--3.引入Layer样式； -->
+    <link rel="stylesheet" href="/layer/layer/theme/default/layer.css">
+    <!--4.引入jquery框架-->
+    <script src="/bootstrap/js/jquery.min.js"></script>
+    <!--5.引入boostrap框架的JS-->
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <!--6.引入Layer框架的JS-->
+    <script src="/layer/layer/layer.js"></script>
+    <!--7.引入angularJS框架-->
+    <script src="/angularjs/angular.min.js"></script>
+    <!--8.引入angularJS的分页框架-->
+    <script src="/angularjs/pagination.js"></script>
+    <!--9.自己写的js-->
+</head>
+<body>
+<div class="container">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h1>用户登录</h1>
+        </div>
+        <div class="panel-body" style="height: 260px">
+            <form class="form-horizontal">
+                <h1></h1>
+                <div class="form-group">
+                    <label for="uname" class="col-sm-4 control-label">用户名</label>
+                    <div class="col-sm-4">
+                        <input type="email" class="form-control" id="uname" placeholder="请输入用户名">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="upwd" class="col-sm-4 control-label">密码</label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control" id="upwd" placeholder="请输入密码">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-4">
+                        <a class="btn btn-success btn-lg btn-block" id="login">登录</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="panel-footer text-right">
+            深圳知领公司版权所有
+        </div>
+    </div>
+</div>
+<script>
+    $("#login").click(function () {
+        $.ajax({
+            url:"/cut/user/login",
+            method:"POST",
+            data:{
+                uname:$("#uname").val(),
+                upwd:$("#upwd").val()
+            },
+            dataType:"json",
+            success:function (data) {
+                if (data!=0){
+                    window.location.href="main.html";
+                }else{
+                    layer.msg("用户名或密码错误",{icon:5});
+                }
+            },
+            error:function () {
+                layer.msg("用户名或密码错误",{icon:5});
+            }
+        })
+    })
+</script>
+
+</body>
+</html>

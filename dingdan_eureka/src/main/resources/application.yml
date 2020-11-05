@@ -1,0 +1,10 @@
+server:
+  port: 7508
+eureka:
+  instance:
+    hostname: dingdan.com #eureka服务实例名称
+  client:
+    register-with-eureka: false #不将自己注册到eureka服务中
+    fetch-registry: false #不从eureka中提取注册信息
+    service-url:
+      defaultZone: http://127.0.0.1:7508/eureka/ #eureka 客户端与服务端通信的地址
